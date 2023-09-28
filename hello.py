@@ -9,10 +9,21 @@ print(__name__)
 def hello_world():
     return "<p>Hello, World!</p>"
 
+
+@app.route("/user/<name>")
+def greeting(name):
+    return f"Hi there, {name}!"
+
+
+@app.route("/user/<name>/<int:post_id>")
+def show_id(post_id, name):
+    return f"Post, {post_id}"
+
+
 @app.route("/bye")
 def bye():
     return "Bye!"
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
